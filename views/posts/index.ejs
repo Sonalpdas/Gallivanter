@@ -10,11 +10,19 @@
     <div class="container">
         <h1 class="mb-4">Travel Posts</h1>
         <a href="/posts/new" class="btn btn-success">New Post</a>
-
+        <a href="/posts/search" class="btn btn-primary">Search Post</a>
+        <div class="mt-2">
+            <span class="badge badge-info"><span class="badge badge-light">
+                <%= posts.length %>
+            </span> Posts</span>
+            <span class="badge badge-secondary"><span class="badge badge-light"> <%= posts.filter(p => p.title.includes("solo")).length %></span> Solo Trips</span>
+            <span class="badge badge-secondary"><span class="badge badge-light"> <%= posts.filter(p => p.title.includes("hiking")).length %></span> Hiking Trips</span>
+        </div>
         <% posts.forEach(post => { %>
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title"><%= post.title %></h4>
+                    <h4 class="card-title"><%= post.title %> <input type="button" value="like" on-click="like:{{post.id}}"/></h4>
+                    
                     <div class="card-subtitle text-muted mb-2">
                         <%= post.createdDate.toLocaleDateString() %>
                     </div>

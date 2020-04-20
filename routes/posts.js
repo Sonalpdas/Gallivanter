@@ -6,6 +6,25 @@ router.get('/new', (req,res)=>{
     res.render('posts/new', { post: new TravelPost() })
 })
 
+router.get('/search', async (req, res) => {
+    res.render('posts/search') 
+})
+
+router.post('/search', async (req, res) => {
+    //const posts = await TravelPost.find('title:','/test/i')
+    const searchKeyword = req.body.searchKeyword
+    console.log(searchKeyword)
+    if(typeof searchKeyword !== 'undefined') {
+        const posts = await TravelPost.find({"title" : {"$regex": searchKeyword, '$options': "i"}}, function(err,docs){}).sort({
+            createdDate: 'desc'
+        })
+        res.render('posts/search',{posts: posts, searchKeyword: searchKeyword})  
+    }
+    else{
+        res.render('posts/search')  
+    }
+})
+
 router.get('/edit/:id', async (req,res)=>{
     const post = await TravelPost.findById(req.params.id)
     res.render('posts/edit', { post: post })
@@ -17,10 +36,13 @@ router.get('/:slug', async (req, res) => {
     res.render('posts/show',{ post: post })    
 })
 
+
+
 router.post('/',async (req, res, next) => {
     req.post = new TravelPost()
     next() //indicates router to go to next func which is 'savePostAndRedirect'
 }, savePostAndRedirect('new'))
+
 
 router.put('/:id',async (req, res, next) => {
     req.post = await TravelPost.findById(req.params.id)

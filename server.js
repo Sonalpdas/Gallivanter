@@ -11,6 +11,9 @@ mongoose.connect('mongodb://localhost/gallivanter',{
     useCreateIndex: true
 })
 
+var db = mongoose.connection
+db.on('error', console.error.bind('MongoDB connection error:'))
+
 app.set('view engine', 'ejs') //View engine converts ejs code to html
 
 app.use(express.urlencoded({ extended: false })) //access all diff parameters from post route
@@ -20,7 +23,10 @@ app.get('/', async (req, res) => {
     const posts = await TravelPost.find().sort({
         createdDate: 'desc'
     })
+
+    //console.log("Database Entries: \n" + posts)
     res.render('posts/index', {posts: posts})
+    
 })
 
 app.use('/posts',postRouter) //Should come after everything else
