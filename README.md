@@ -38,5 +38,5 @@ Bootstrap | MongoDB (Mongoose library)
 2. sanitizedHtml field is used to capture sanitize markdown value to prevent any kind on inadvertant/malicious attempt to break the HTML
 
 ## Screen reference
-![Image of Gallivanter social web](models\img\Galllivanter.PNG)
+![Image of Gallivanter social web](https://github.com/sonalpdas-cmu/Gallivanter/blob/master/img/Galllivanter.PNG)
 
