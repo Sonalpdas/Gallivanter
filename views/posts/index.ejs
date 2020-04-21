@@ -16,8 +16,8 @@
             <span class="badge badge-info"><span class="badge badge-light">
                 <%= posts.length %>
             </span> Posts</span>
-            <span class="badge badge-secondary"><span class="badge badge-light"> <%= posts.filter(p => p.title.includes("solo")).length %></span> Solo Trips</span>
-            <span class="badge badge-secondary"><span class="badge badge-light"> <%= posts.filter(p => p.title.includes("hiking")).length %></span> Hiking Trips</span>
+            <span class="badge badge-secondary"><span class="badge badge-light"> <%= posts.filter(p => p.title.toLowerCase().includes("solo")).length %></span> Solo Trips</span>
+            <span class="badge badge-secondary"><span class="badge badge-light"> <%= posts.filter(p => p.title.toLowerCase().includes("hiking")).length %></span> Hiking Trips</span>
         </div>
         <% posts.forEach(post => { %>
             <div class="card mt-4">
