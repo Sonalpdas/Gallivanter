@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
         createdDate: 'desc'
     })
 
-    //console.log("Database Entries: \n" + posts)
+    console.log("Database Entries: \n" + posts)
     res.render('posts/index', {posts: posts})
     
 })
