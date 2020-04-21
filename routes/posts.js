@@ -36,8 +36,6 @@ router.get('/:slug', async (req, res) => {
     res.render('posts/show',{ post: post })    
 })
 
-
-
 router.post('/',async (req, res, next) => {
     req.post = new TravelPost()
     next() //indicates router to go to next func which is 'savePostAndRedirect'

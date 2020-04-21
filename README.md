@@ -7,6 +7,10 @@ Social Web platform to share travel stories
     * User clicks on 'Edit' button, edit page with current post values are displayed. On Submit, modified post is visible on index page
     * User clicks on 'Delete' button, post is removed from the index page
     **Note**: Posts are displayed in descending order of post creation date
+- [x] **Read More**
+    * User clicks on 'Read More' button, show page is displayed. It display's post details in read-only mode. The URL display's post title instead of id
+    * User clicks on 'All posts' button to return to home page
+    * User clicks on 'Edit' button to edit the post
 - [x] **Search Posts**
     * User clicks on 'Search Post' button, Search page is displayed. User provides a search keyword, clicks submit. Posts with title 'containing' search keyword is displayed
     * Search result contains: post cards (if any), number of posts found, search keyword
@@ -24,7 +28,7 @@ Bootstrap | MongoDB (Mongoose library)
 ## Database Schema
 ### MongoDB Collection (Table) Schema:
 
-**Collection Name: TravelPost**:
+**Collection Name: TravelPost**: (/models/post.js)
 **TravelPost Schema**:
 * **title**: {type:string, required: true}
 * **description**: {type:string}
@@ -34,7 +38,7 @@ Bootstrap | MongoDB (Mongoose library)
 * **sanitizedHtml**: { type: String, required: true }
 
 **Note**:
-1. slug field captures value corresponding to post id. This value is used on the URL to replace post id with meaniful value (in this case replace with post title)
+1. slug field is used to replace random id generated for post with post tile. 'Read more' page will show post title instead of post id in the URL. 
 2. sanitizedHtml field is used to capture sanitize markdown value to prevent any kind on inadvertant/malicious attempt to break the HTML
 
 ## Screen reference
