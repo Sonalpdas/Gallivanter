@@ -18,7 +18,7 @@ router.post('/search', async (req, res) => {
         const posts = await TravelPost.find({"title" : {"$regex": searchKeyword, '$options': "i"}}, function(err,docs){}).sort({
             createdDate: 'desc'
         })
-        res.render('posts/search',{posts: posts, searchKeyword: searchKeyword})  
+        res.render('posts/search',{posts: posts, keyword: {searchKeyword}})  
     }
     else{
         res.render('posts/search')  

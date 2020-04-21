@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4">Travel Posts</h1>
+        <h1 class="mb-4" style="color:darkolivegreen">Gallivantar</h1>
+        <h2 class="mb-4">Your Travel Posts</h2>
         <a href="/posts/new" class="btn btn-success">New Post</a>
         <a href="/posts/search" class="btn btn-primary">Search Post</a>
         <div class="mt-2">
@@ -21,7 +22,7 @@
         <% posts.forEach(post => { %>
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title"><%= post.title %> <input type="button" value="like" on-click="like:{{post.id}}"/></h4>
+                    <h4 class="card-title"><%= post.title %> </h4>
                     
                     <div class="card-subtitle text-muted mb-2">
                         <%= post.createdDate.toLocaleDateString() %>
