@@ -9,7 +9,7 @@ Social Web platform to share travel stories
     **Note**: Posts are displayed in descending order of post creation date
 - [x] **Read More**
     * User clicks on 'Read More' button, show page is displayed. It display's post details in read-only mode. The URL display's post title instead of id
-    * User clicks on 'All posts' button to return to home page
+    * User clicks on 'All posts' button to return to home page. Posts are displayed in descending order of date created (latest post on top)
     * User clicks on 'Edit' button to edit the post
 - [x] **Search Posts**
     * User clicks on 'Search Post' button, Search page is displayed. User provides a search keyword, clicks submit. Posts with title 'containing' search keyword is displayed
