@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <h1><%= name %></h1>
         <h1 class="mb-4" style="color:darkolivegreen">Gallivantar</h1>
         <h2 class="mb-4">Your Travel Posts</h2>
         <a href="/posts/new" class="btn btn-success">New Post</a>
@@ -39,6 +40,9 @@
                 </div> 
             </div>
         <% }) %>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
     </div>
 </body>
 </html>
