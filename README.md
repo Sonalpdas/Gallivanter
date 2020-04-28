@@ -1,7 +1,7 @@
 # Gallivanter
 Social Web platform to share travel stories
 
-## Site Features (covering week 1 requirement)
+## Site Features (covering Part1 & Part2 requirement)
 - [x] **Add/Edit/Delete Posts**
     * User clicks on 'New' post button, new post page is displayed. On submit, new post is visible on index page
     * User clicks on 'Edit' button, edit page with current post values are displayed. On Submit, modified post is visible on index page
@@ -21,7 +21,7 @@ Social Web platform to share travel stories
 - [x] **Login/Sign-up**
     * Lazy-signup (User able to see read only posts before signing up)
     * Register
-    * Login
+    * Login (used passport.js to maintain user's login session.)
 - [x] **Login/Sign-up**
     * Lazy-signup (User able to see read only posts before signing up)
 - [x] **Natural Language Input**
