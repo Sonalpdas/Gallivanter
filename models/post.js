@@ -46,4 +46,8 @@ postSchema.pre('validate', function(next){
     next()
 })
 
+postSchema.index({
+    title: 'text'
+})
+
 module.exports = mongoose.model('TravelPost', postSchema)

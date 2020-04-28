@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production'){
 const express = require('express')
 const mongoose = require('mongoose')
 const TravelPost = require('./models/post')
+const Users = require('./models/user')
 const postRouter = require('./routes/posts')
 const methodOverride = require('method-override')
 const app = express()
@@ -54,8 +55,11 @@ app.get('/', checkAuthenticated,async (req, res) => {
     
 })
 
-app.get('/login', checkNotAuthenticated, (req,res) => {
-    res.render('login.ejs')
+app.get('/login', checkNotAuthenticated, async (req,res) => {
+    const posts = await TravelPost.find().sort({
+        createdDate: 'desc'
+    })
+    res.render('login.ejs',{posts: posts})
 })
 
 app.get('/register', checkNotAuthenticated, (req,res) => {
@@ -71,17 +75,25 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local',{
 app.post('/register', checkNotAuthenticated, async (req,res) => {
     try{
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({ //Save this info in db instead of a in-memory var
+        let user = new Users({
+            uid: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        })  
+        console.log(user)
+        
+        users.push({ 
             id: Date.now().toString(),
             name: req.body.name,
             email: req.body.email,
             password: hashedPassword
         })
+        
         res.redirect('/login')
     } catch{
         res.redirect('/register')
-    }
-    console.log(users)
+    }   
 })
 
 app.use('/posts',postRouter) //Should come after everything else

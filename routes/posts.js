@@ -1,6 +1,7 @@
 const express = require('express')
 const TravelPost = require('./../models/post')
 const router = express.Router()
+const sw = require('stopword')
 
 router.get('/new', (req,res)=>{
     res.render('posts/new', { post: new TravelPost() })
@@ -12,12 +13,28 @@ router.get('/search', async (req, res) => {
 
 router.post('/search', async (req, res) => {
     //const posts = await TravelPost.find('title:','/test/i')
-    const searchKeyword = req.body.searchKeyword
-    console.log(searchKeyword)
-    if(typeof searchKeyword !== 'undefined') {
-        const posts = await TravelPost.find({"title" : {"$regex": searchKeyword, '$options': "i"}}, function(err,docs){}).sort({
-            createdDate: 'desc'
-        })
+    const searchKeyword = req.body.searchKeyword    
+    const oldStrKeyword = searchKeyword.split(' ')
+    const newStrKeyword = sw.removeStopwords(oldStrKeyword)
+    console.log(newStrKeyword)
+    if(newStrKeyword.length > 0) {
+        var keywords = new Array();
+        for(var i=0;i<newStrKeyword.length;i++){
+            var re = new RegExp(newStrKeyword[i])
+            keywords.push(re)
+        }
+        console.log(keywords)
+        if(oldStrKeyword.indexOf("adventures") > -1 && oldStrKeyword.indexOf("hiking") >-1){
+            var posts = await TravelPost.find({$and:[{title: {$regex: "adventures",'$options': "i"}},{title: {$regex: "hiking",'$options': "i"}}]}, function(err,docs){}).sort({
+                createdDate: 'desc'
+            })
+        }
+        else{
+            var posts = await TravelPost.find({'title' : {$in: keywords}}, function(err,docs){}).sort({
+                createdDate: 'desc'
+            })
+        }
+       
         res.render('posts/search',{posts: posts, keyword: {searchKeyword}})  
     }
     else{
