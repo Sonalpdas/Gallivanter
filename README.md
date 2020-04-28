@@ -40,7 +40,7 @@ Bootstrap | MongoDB (Mongoose library)
 ## Database Schema
 ### MongoDB Collection (Table) Schema:
 
-**Collection Name: TravelPost**: (/models/post.js)
+**1. Collection Name: TravelPost**: (/models/post.js)
 **TravelPost Schema**:
 * **title**: {type:string, required: true}
 * **description**: {type:string}
@@ -53,8 +53,8 @@ Bootstrap | MongoDB (Mongoose library)
 1. slug field is used to replace random id generated for post with post tile. 'Read more' page will show post title instead of post id in the URL. 
 2. sanitizedHtml field is used to capture sanitize markdown value to prevent any kind on inadvertant/malicious attempt to break the HTML
 
-**Collection Name: User**: (/models/post.js)
-**TravelPost Schema**:
+**2. Collection Name: User**: (/models/user.js)
+**User Schema**:
 * **uid**: {type:string, required: true}
 * **name**: {type:string, required: true}
 * **email**: {type:string, required: true}
