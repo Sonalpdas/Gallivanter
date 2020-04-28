@@ -18,6 +18,18 @@ Social Web platform to share travel stories
     * No. of posts
     * No. of Solo trip posts
     * No. of Hiking trip posts)
+- [x] **Login/Sign-up**
+    * Lazy-signup (User able to see read only posts before signing up)
+    * Register
+    * Login
+- [x] **Login/Sign-up**
+    * Lazy-signup (User able to see read only posts before signing up)
+- [x] **Natural Language Input**
+    * NLI based search results.
+    * Used stopword module to strip common words from search keyword
+    * Used 'And' condition to hit multiple search tokens
+    * Used 'Or' condition when there is zero result from 'And' condition
+
 
 ## Technical Stack
 Front-End | Back-End
@@ -40,6 +52,12 @@ Bootstrap | MongoDB (Mongoose library)
 **Note**:
 1. slug field is used to replace random id generated for post with post tile. 'Read more' page will show post title instead of post id in the URL. 
 2. sanitizedHtml field is used to capture sanitize markdown value to prevent any kind on inadvertant/malicious attempt to break the HTML
+
+**Collection Name: User**: (/models/post.js)
+**TravelPost Schema**:
+* **uid**: {type:string, required: true}
+* **email**: {type:string}
+* **password**: {type:string, required: true}
 
 ## Screen reference
 ![Image of Gallivanter social web](https://github.com/sonalpdas-cmu/Gallivanter/blob/master/img/Galllivanter.PNG)
