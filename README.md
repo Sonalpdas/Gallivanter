@@ -22,9 +22,7 @@ Social Web platform to share travel stories
     * Lazy-signup (User able to see read only posts before signing up)
     * Register
     * Login (used passport.js to maintain user's login session.)
-- [x] **Login/Sign-up**
-    * Lazy-signup (User able to see read only posts before signing up)
-- [x] **Natural Language Input**
+- [x] **Natural Language Interface**
     * NLI based search results.
     * Used stopword module to strip common words from search keyword
     * Used 'And' condition to hit multiple search tokens
