@@ -33,6 +33,7 @@ db.on('error', console.error.bind('MongoDB connection error:'))
 
 app.set('view engine', 'ejs') //View engine converts ejs code to html
 
+app.use(express.static("public"))
 app.use(express.urlencoded({ extended: false })) //access all diff parameters from post route
 app.use(methodOverride('_method'))
 app.use(flash())

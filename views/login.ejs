@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Gallivanter</title>
+    <link href="favorites.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
 </head>
 <body>
+    <div class="click">
+        <span class="fa fa-star-o"></span>
+        <div class="ring"></div>
+        <div class="ring2"></div>
+        <p class="info">Added to favourites!</p>
+    </div>
     <div class="container">  
         <div class="row">
             <div class="col-sm-6 col-md-6">
@@ -42,7 +52,10 @@
         <% posts.forEach(post => { %>
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title"><%= post.title %> </h4>
+                    <h4 class="card-title">
+                                             
+                        <%= post.title %> 
+                    </h4>
                     
                     <div class="card-subtitle text-muted mb-2">
                         <%= post.createdDate.toLocaleDateString() %>
@@ -50,7 +63,37 @@
                     <div class="card-text mb-2"><%= post.description %></div>
                 </div> 
             </div>
-        <% }) %>        
+        <% }) %>     
     </div>
+    <script>
+        $('.click').click(function() {
+            if ($('span').hasClass("fa-star")) {
+                    $('.click').removeClass('active')
+                setTimeout(function() {
+                    $('.click').removeClass('active-2')
+                }, 30)
+                    $('.click').removeClass('active-3')
+                setTimeout(function() {
+                    $('span').removeClass('fa-star')
+                    $('span').addClass('fa-star-o')
+                }, 15)
+            } else {
+                $('.click').addClass('active')
+                $('.click').addClass('active-2')
+                setTimeout(function() {
+                    $('span').addClass('fa-star')
+                    $('span').removeClass('fa-star-o')
+                }, 150)
+                setTimeout(function() {
+                    $('.click').addClass('active-3')
+                }, 150)
+                $('.info').addClass('info-tog')
+                setTimeout(function(){
+                    $('.info').removeClass('info-tog')
+                },1000)
+            }
+        })
+    </script>   
+
 </body>
 </html>
