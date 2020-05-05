@@ -11,6 +11,9 @@
         <% posts.forEach(post => { %>           
             <div class="card mt-4">
                 <div class="card-body">
+                    <% if(post.favorite === true) {%>
+                        <span class="fas fa-star"></span>
+                        <% } %>
                     <h4 class="card-title"><%= post.title %></h4>
                     <div class="card-subtitle text-muted mb-2">
                         <%= post.createdDate.toLocaleDateString() %>
@@ -23,6 +26,9 @@
                     <!-- Created form for delete because an method function need to be called for delete function-->
                     <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" class="d-inline">
                         <button type="submit" class="btn btn-danger">Delete</button>
+                    </form> 
+                    <form action="/favorite/<%= post.id%>?_method=PUT" method="POST" class="d-inline">                         
+                        <button type="submit" class="btn btn-light">Add to Favorites</button>
                     </form> 
                 </div> 
             </div>

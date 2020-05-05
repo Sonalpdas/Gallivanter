@@ -1,4 +1,7 @@
-$('.click').click(function() {
+console.log('client-side script running')
+
+const star = document.getElementsByClassName('click')
+star.addEventListener('click', function(e){
 	if ($('span').hasClass("fa-star")) {
 			$('.click').removeClass('active')
 		setTimeout(function() {
@@ -25,3 +28,5 @@ $('.click').click(function() {
 		},1000)
 	}
 })
+
+module.exports = router

@@ -6,6 +6,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const TravelPost = require('./models/post')
 const Users = require('./models/user')
+const Favorite = require('./models/favorites')
 const postRouter = require('./routes/posts')
 const methodOverride = require('method-override')
 const app = express()
@@ -33,7 +34,7 @@ db.on('error', console.error.bind('MongoDB connection error:'))
 
 app.set('view engine', 'ejs') //View engine converts ejs code to html
 
-app.use(express.static("public"))
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false })) //access all diff parameters from post route
 app.use(methodOverride('_method'))
 app.use(flash())
@@ -95,6 +96,15 @@ app.post('/register', checkNotAuthenticated, async (req,res) => {
     } catch{
         res.redirect('/register')
     }   
+})
+
+app.put('/favorite/:id',async (req, res) => {
+    console.log('favorite function')
+    var post = await TravelPost.findById(req.params.id)   
+    post.favorite = true;
+    post = await post.save() //update post with new post  
+    console.log(post)  
+    res.redirect('/')
 })
 
 app.use('/posts',postRouter) //Should come after everything else

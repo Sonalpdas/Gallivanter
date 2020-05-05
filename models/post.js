@@ -29,6 +29,9 @@ const postSchema = new mongoose.Schema({
     sanitizedHtml: {
         type: String,
         required: true
+    },
+    favorite:{
+        type: Boolean
     }
 })
 

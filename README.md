@@ -1,7 +1,7 @@
 # Gallivanter
 Social Web platform to share travel stories
 
-## Site Features (covering Part1 & Part2 requirement)
+## Site Features (covering Part1, Part2 & Part 3 requirement)
 - [x] **Add/Edit/Delete Posts**
     * User clicks on 'New' post button, new post page is displayed. On submit, new post is visible on index page
     * User clicks on 'Edit' button, edit page with current post values are displayed. On Submit, modified post is visible on index page
@@ -27,6 +27,17 @@ Social Web platform to share travel stories
     * Used stopword module to strip common words from search keyword
     * Used 'And' condition to hit multiple search tokens
     * Used 'Or' condition when there is zero result from 'And' condition
+- [x] **Favorites**
+    * Ability to allow users to mark a post as favorite
+    * The page reloads and shows start against the favorite post
+    * Post data is updated for the 'favorite' flag set as 'true'
+- [x] **Search based on user-profile**
+    * For all the items that are marked as favorite, a list of uncommon words are listed
+    * The list of uncommon words are then scored (%age) based on the number favorite items that have them
+    * The search results will now sort the data based on the scores of the search keywords
+    * The search keywords in the favorites list will be ranked higher in the sort result
+    * The search result will place the matching favorite items on the top of the result list
+
 
 
 ## Technical Stack
@@ -46,6 +57,7 @@ Bootstrap | MongoDB (Mongoose library)
 * **createdDate**: {type:Date, default: Date.now}
 * **slug**: {type: String, require: true, unique: true }
 * **sanitizedHtml**: { type: String, required: true }
+* **favorite**: { type: Boolean }
 
 **Note**:
 1. slug field is used to replace random id generated for post with post tile. 'Read more' page will show post title instead of post id in the URL. 
