@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/sonalpdas-cmu/Gallivanter#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "dompurify": "^2.0.8",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
