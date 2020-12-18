@@ -19,7 +19,7 @@
   "homepage": "https://github.com/sonalpdas-cmu/Gallivanter#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "dompurify": "^2.0.8",
+    "dompurify": "^2.0.17",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
