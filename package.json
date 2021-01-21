@@ -33,7 +33,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "slugify": "^1.4.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "stopword": "^1.0.1"
   },
   "devDependencies": {
