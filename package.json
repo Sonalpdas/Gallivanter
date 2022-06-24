@@ -25,7 +25,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
     "favorite-star": "^0.1.5",
-    "jsdom": "^16.2.2",
+    "jsdom": "^16.5.0",
     "marked": "^0.8.2",
     "method-override": "^3.0.0",
     "mongodb": "^3.5.6",
